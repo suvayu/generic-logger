@@ -1,0 +1,17 @@
+Compilation:
+===============
+$ g++ -c -fPIC -Wall logger.cxx
+$ g++ -shared -Wl,-soname,libgeneric_logger.so -o libgeneric_logger.so logger.o 
+$ g++  example.cxx -L. -Wall -lgeneric_logger -o example 
+
+
+Run:
+===============
+$ LD_LIBRARY_PATH=.:$LD_LIBRARY_PATH ./example
+
+
+Output:
+===============
+5, 5, 5, 
+one, two, three, 
+1, 2, three, 
